@@ -79,9 +79,9 @@ Quelle carte souhaitez-vous retourner ? 1 <= X <= 5  1<= Y <= 4
 
 ## Etape 2 : version graphique
 
-Dans une deuxième étape, on développera une interface graphique en swing.
+Dans une deuxième étape, on développera une interface graphique en JavaFX ou Swing.
 
-Par exemple :
+Par exemple en Swing :
 
 ![Graphical Memory](graphicalmemory.png)
 
