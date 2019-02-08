@@ -27,6 +27,6 @@ public class GraphicalCell extends Cell {
 
     @Override
     public void pin(){
-        ui.setEnabled(false);
+        ui.setEnabled(true);
     }
 }

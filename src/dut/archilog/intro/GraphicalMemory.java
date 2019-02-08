@@ -18,9 +18,6 @@ public class GraphicalMemory extends JFrame implements Memory<GraphicalCell> {
     private Cell firstCard;
     private Cell secondCard;
     private Cell selectedCell;
-    private CellJButton firstButton;
-    private CellJButton secondButton;
-    private CellJButton selectedButton;
     private Object mutex = new Object();
     private int height;
     private int width;
@@ -40,7 +37,6 @@ public class GraphicalMemory extends JFrame implements Memory<GraphicalCell> {
         this.secondCard = null;
         this.selectedCell = null;
         nbPairesTrouvee = 0;
-        this.selectedButton = null;
 
 
 
@@ -88,7 +84,6 @@ public class GraphicalMemory extends JFrame implements Memory<GraphicalCell> {
             button.setEnabled(false);
             aCell.setVisible(true);
             selectedCell = aCell;
-            selectedButton = button;
             mutex.notify();
         }
 
@@ -107,8 +102,6 @@ public class GraphicalMemory extends JFrame implements Memory<GraphicalCell> {
         }
         displayMessage("Selection de la premiere carte");
         firstCard = selectedCell;
-        firstButton = selectedButton;
-        selectedButton = null;
         selectedCell = null;
     }
 
@@ -125,8 +118,6 @@ public class GraphicalMemory extends JFrame implements Memory<GraphicalCell> {
         }
         displayMessage("Selection de la premiere carte");
         secondCard = selectedCell;
-        secondButton = selectedButton;
-        selectedButton = null;
         selectedCell = null;
     }
 
@@ -150,8 +141,8 @@ public class GraphicalMemory extends JFrame implements Memory<GraphicalCell> {
 
     @Override
     public void hideTheTwoCards() {
-        firstButton.setEnabled(true);
-        secondButton.setEnabled(true);
+        firstCard.pin();
+        secondCard.pin();
         firstCard.setVisible(false);
         secondCard.setVisible(false);
         this.revalidate();
